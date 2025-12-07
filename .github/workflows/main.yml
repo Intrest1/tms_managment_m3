@@ -1,0 +1,21 @@
+name: Run EXE on Windows
+
+on:
+  workflow_dispatch:   # lets you run it manually
+  push:                # runs when you upload/commit
+
+jobs:
+  run-exe:
+    runs-on: windows-latest   # free Windows VM
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Show files (debug)
+        run: dir
+
+      - name: Run your EXE
+        run: |
+          echo "Starting EXE inside Windows VM..."
+          .\TranspoTech.exe
